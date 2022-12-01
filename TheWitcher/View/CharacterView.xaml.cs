@@ -11,29 +11,24 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using TheWitcher.ViewModel;
+using TheWitcherDBLibrary.Model;
 
 namespace TheWitcher.View
 {
     /// <summary>
-    /// Interaction logic for WitcherView.xaml
+    /// Interaction logic for CharacterView.xaml
     /// </summary>
-    public partial class WitcherView : Window
+    public partial class CharacterView : Window
     {
-        private WitcherViewModel vm = new WitcherViewModel();
-        public WitcherView()
+        public CharacterView()
         {
             InitializeComponent();
-            this.DataContext = vm;
         }
 
-        private void Character_Click(object sender, RoutedEventArgs e)
+        public CharacterView(Character character) : this()
         {
-            if(vm.SelectedCharacter == null)
-            {
-                return;
-            }
-            new CharacterView(vm.SelectedCharacter).ShowDialog();
+            this.Title = character.Name;
+            this.DataContext = character;
         }
     }
 }

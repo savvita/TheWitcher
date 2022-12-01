@@ -5,16 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TheWitcher.View"
         mc:Ignorable="d"
-        Title="The Witcher" Height="450" Width="800">
-    <StackPanel>
-        <ListBox ItemsSource="{Binding Characters}">
+        Title="The Witcher" Height="500" Width="900" WindowState="Maximized" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <ResourceDictionary Source="StyleDictionary.xaml" />
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="2.5*" />
+        </Grid.ColumnDefinitions>
+        
+
+        <ListBox 
+            Grid.Column="0" 
+            FontFamily="./#Mason Chronicles" 
+            FontSize="18"
+            ItemsSource="{Binding Chapters}" 
+            SelectedItem="{Binding SelectedChapter}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <local:CharacterControl />
+                        <Label Content="{Binding Name}" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-    </StackPanel>
+
+        <Border Grid.Column="1" BorderThickness="1" BorderBrush="#ccc" />
+
+        <ListBox Grid.Column="2"
+                 FontFamily="./#Mason Chronicles" 
+                 FontSize="16"
+                 ItemsSource="{Binding Characters}" 
+                 SelectedItem="{Binding SelectedCharacter}"
+                 MouseDoubleClick="Character_Click">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border Style="{StaticResource BorderStyle}">
+                        <local:CharacterControl Height="400" VerticalContentAlignment="Center"/>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
 </Window>

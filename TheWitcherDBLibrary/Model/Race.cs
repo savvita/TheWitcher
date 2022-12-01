@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TheWitcher.Model;
+namespace TheWitcherDBLibrary.Model;
 
 public partial class Race
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TheWitcher.Model;
+namespace TheWitcherDBLibrary.Model;
 
 public partial class Occupation
 {
@@ -9,5 +9,5 @@ public partial class Occupation
 
     public string OccupationName { get; set; } = null!;
 
-    public virtual ICollection<Character> Characters { get; } = new List<Character>();
+    public virtual ICollection<CharacterOccupation> CharacterOccupations { get; } = new List<CharacterOccupation>();
 }

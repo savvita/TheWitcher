@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TheWitcher.Model;
+namespace TheWitcherDBLibrary.Model;
 
 public partial class Character
 {
@@ -9,15 +9,9 @@ public partial class Character
 
     public string Name { get; set; } = null!;
 
-    public int ChapterId { get; set; }
-
     public int? SexId { get; set; }
 
     public int? RaceId { get; set; }
-
-    public int? OccupationId { get; set; }
-
-    public int? SchoolId { get; set; }
 
     public string? Death { get; set; }
 
@@ -25,13 +19,15 @@ public partial class Character
 
     public string ImageUrl { get; set; } = null!;
 
-    public virtual Chapter Chapter { get; set; } = null!;
+    public virtual ICollection<CharacterBelongsTo> CharacterBelongsTos { get; } = new List<CharacterBelongsTo>();
 
-    public virtual Occupation? Occupation { get; set; }
+    public virtual ICollection<CharacterChapter> CharacterChapters { get; } = new List<CharacterChapter>();
+
+    public virtual ICollection<CharacterOccupation> CharacterOccupations { get; } = new List<CharacterOccupation>();
 
     public virtual Race? Race { get; set; }
 
-    public virtual School? School { get; set; }
+    public virtual ICollection<Section> Sections { get; } = new List<Section>();
 
     public virtual Sex? Sex { get; set; }
 }

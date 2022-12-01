@@ -3,15 +3,67 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:converter="clr-namespace:TheWitcher.Converter"
              xmlns:local="clr-namespace:TheWitcher.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="150" d:DesignWidth="100" d:Height="150" d:MinHeight="150">
+
+
+    <UserControl.Resources>
+        <converter:SexToStringConverter x:Key="sexToStringConverter" />
+        <converter:RaceToStringConverter x:Key="raceToStringConverter" />
+    </UserControl.Resources>
+
     <StackPanel>
-        <Image Source="{Binding ImageURL}" />
-        <Label Content="{Binding Name}" />
-        <Label Content="{Binding Sex}" />
-        <Label Content="{Binding Race}" />
-        <Label Content="{Binding BelongTo}" />
-        <Label Content="{Binding Occupation}" />
+        <Image Source="{Binding ImageUrl}" MaxHeight="150" Margin="5" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Имя" Grid.Row="0" Grid.Column="0" />
+            <Label Content="{Binding Name}" Grid.Row="0" Grid.Column="1" />
+
+            <Label Content="Пол" Grid.Row="1" Grid.Column="0" />
+            <Label Content="{Binding Sex, Converter={StaticResource sexToStringConverter}}" Grid.Row="1" Grid.Column="1" />
+
+            <Label Content="Раса" Grid.Row="2" Grid.Column="0" />
+            <Label Content="{Binding Race, Converter={StaticResource raceToStringConverter}}" Grid.Row="2" Grid.Column="1" />
+
+            <Label Content="Род занятий" Grid.Row="3" Grid.Column="0" />
+            <ListBox ItemsSource="{Binding CharacterOccupations}" Grid.Row="3" Grid.Column="1">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Label Content="{Binding Occupation.OccupationName}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Label Content="Принадлежность" Grid.Row="4" Grid.Column="0" />
+            <ListBox ItemsSource="{Binding CharacterBelongsTos}" Grid.Row="4" Grid.Column="1">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Label Content="{Binding BelongTo.SchoolName}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Label Content="Смерть" Grid.Row="5" Grid.Column="0" />
+            <Label Content="{Binding Death}" Grid.Row="5" Grid.Column="1" />
+        </Grid>
+
     </StackPanel>
 </UserControl>

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TheWitcher.Model;
+namespace TheWitcherDBLibrary.Model;
 
 public partial class Chapter
 {
@@ -9,5 +9,5 @@ public partial class Chapter
 
     public string Name { get; set; } = null!;
 
-    public virtual ICollection<Character> Characters { get; } = new List<Character>();
+    public virtual ICollection<CharacterChapter> CharacterChapters { get; } = new List<CharacterChapter>();
 }

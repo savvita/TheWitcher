@@ -1,43 +1,53 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//using TheWitcher.Model;
+using TheWitcherDBLibrary.DBAccess;
+using TheWitcherDBLibrary.Model;
 
 namespace TheWitcher.ViewModel
 {
     public class WitcherViewModel
     {
-        //public List<Character> Characters { get; set; }
+        private Chapter? selectedChapter;
+        public Chapter? SelectedChapter
+        {
+            get => selectedChapter;
+            set
+            {
+                selectedChapter = value;
+                RefreshCharacters();
+            }
+        }
 
-        //public WitcherViewModel()
-        //{
-        //    Characters = new List<Character>()
-        //    {
-        //        new Character()
-        //        {
-        //            Name = "Heralt",
-        //            Race = "Human",
-        //            Sex = Sex.Male,
-        //            BelongTo = "White Wolf"
-        //        },
-        //        new Character()
-        //        {
-        //            Name = "Heralt #2",
-        //            Race = "Not Human",
-        //            Sex = Sex.Male,
-        //            BelongTo = "White Wolf2"
-        //        }
-        //    };
-        //}
+        private void RefreshCharacters()
+        {
+            Characters.Clear();
+            SelectedCharacter = null;
 
-        //public Character agh { get; set; } = new Character()
-        //{
-        //    Name = "Heralt #2",
-        //    Race = "Not Human",
-        //    Sex = Sex.Male,
-        //    BelongTo = "White Wolf2"
-        //};
+            if(SelectedChapter == null)
+            {
+                return;
+            }
+
+            foreach(var character in DBData.GetCharactersByChapterId(SelectedChapter.Id))
+            {
+                Characters.Add(character);
+            }
+        }
+
+        public Character? SelectedCharacter { get; set; }
+
+        public List<Chapter> Chapters { get; set; }
+        public ObservableCollection<Character> Characters { get; set; } = new ObservableCollection<Character>();
+
+        public WitcherViewModel()
+        {
+            Chapters = DBData.GetAllChapters();
+        }
+        
     }
 }

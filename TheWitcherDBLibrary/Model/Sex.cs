@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TheWitcher.Model;
+namespace TheWitcherDBLibrary.Model;
 
-public partial class School
+public partial class Sex
 {
     public int Id { get; set; }
 
-    public string SchoolName { get; set; } = null!;
+    public string SexName { get; set; } = null!;
 
     public virtual ICollection<Character> Characters { get; } = new List<Character>();
 }

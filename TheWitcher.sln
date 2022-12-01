@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheWitcher", "TheWitcher\TheWitcher.csproj", "{91C7078B-DF26-452B-A17E-A7E306649F50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheWitcher", "TheWitcher\TheWitcher.csproj", "{91C7078B-DF26-452B-A17E-A7E306649F50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheWitcherDBLibrary", "TheWitcherDBLibrary\TheWitcherDBLibrary.csproj", "{BA01A391-7B1D-4F0E-9108-6E0730F26644}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheWitcherManager", "TheWitcherManager\TheWitcherManager.csproj", "{563D6A96-7DB4-43F0-896F-3C99D337E898}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{91C7078B-DF26-452B-A17E-A7E306649F50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91C7078B-DF26-452B-A17E-A7E306649F50}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91C7078B-DF26-452B-A17E-A7E306649F50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA01A391-7B1D-4F0E-9108-6E0730F26644}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA01A391-7B1D-4F0E-9108-6E0730F26644}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA01A391-7B1D-4F0E-9108-6E0730F26644}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA01A391-7B1D-4F0E-9108-6E0730F26644}.Release|Any CPU.Build.0 = Release|Any CPU
+		{563D6A96-7DB4-43F0-896F-3C99D337E898}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{563D6A96-7DB4-43F0-896F-3C99D337E898}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{563D6A96-7DB4-43F0-896F-3C99D337E898}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{563D6A96-7DB4-43F0-896F-3C99D337E898}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

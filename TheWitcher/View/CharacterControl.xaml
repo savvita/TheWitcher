@@ -12,6 +12,14 @@
     <UserControl.Resources>
         <converter:SexToStringConverter x:Key="sexToStringConverter" />
         <converter:RaceToStringConverter x:Key="raceToStringConverter" />
+
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="#fff" />
+        </Style>
+
+        <Style TargetType="ListBoxItem">
+            <Setter Property="Foreground" Value="#fff" />
+        </Style>
     </UserControl.Resources>
 
     <StackPanel>

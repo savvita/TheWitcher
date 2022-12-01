@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:converter="clr-namespace:SnookerTournamentTracker.Converter"
              xmlns:local="clr-namespace:TheWitcherManager.View"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
              d:DesignHeight="350" d:DesignWidth="800">
 
     <UserControl.Resources>
@@ -26,16 +26,14 @@
             <Setter Property="FontWeight" Value="Normal" />
         </Style>
 
+
         <Style TargetType="ComboBox">
             <Setter Property="FontFamily" Value="./#Mason Chronicles" />
             <Setter Property="FontSize" Value="16" />
             <Setter Property="FontWeight" Value="Normal" />
         </Style>
 
-        <Style TargetType="Button">
-            <Setter Property="FontFamily" Value="./#Mason Chronicles" />
-            <Setter Property="FontSize" Value="16" />
-        </Style>
+
 
         <Style TargetType="GroupBox">
             <Setter Property="FontFamily" Value="./#Mason Chronicles" />
@@ -66,8 +64,8 @@
             <Label Grid.Column="0" Content="Image URL" />
             <TextBox Grid.Column="1" Text="{Binding ImageURL}" />
         </Grid>
-        
-        <GroupBox Grid.Row="1" Grid.Column="0">
+
+        <GroupBox Grid.Row="1" Grid.Column="0"  Style="{StaticResource MaterialDesignGroupBox}" Header="General info">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition />
@@ -103,7 +101,7 @@
             </Grid>
         </GroupBox>
 
-        <GroupBox Header="Chapters" Grid.Row="1" Grid.Column="1">
+        <GroupBox Header="Chapters" Grid.Row="1" Grid.Column="1" Style="{StaticResource MaterialDesignGroupBox}">
             <StackPanel>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -124,22 +122,24 @@
                 
                     <StackPanel Grid.Column="1">
                         <Label Content="Selected chapters" />
-                        <ListBox ItemsSource="{Binding SelectedChapters}" SelectedItem="{Binding SelectedSelectedChapter}">
-                            <ListBox.ItemTemplate>
+                        <ComboBox IsEditable="False" ItemsSource="{Binding SelectedChapters}" SelectedItem="{Binding SelectedSelectedChapter}">
+                            <ComboBox.ItemTemplate>
                                 <DataTemplate>
                                     <Label Content="{Binding Name}" />
                                 </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
                     </StackPanel>
                 </Grid>
-                <Button Content="Add chapter" Command="{Binding AddChapterCmd}" />
-                <Button Content="Remove chapter" Command="{Binding RemoveChapterCmd}" />
+                <Button FontFamily="./#Mason Chronicles" Margin="0 0 0 5"
+            FontSize="16" Content="Add chapter" Command="{Binding AddChapterCmd}" />
+                <Button FontFamily="./#Mason Chronicles" Margin="0 0 0 5"
+            FontSize="16" Content="Remove chapter" Command="{Binding RemoveChapterCmd}" />
             </StackPanel>
 
         </GroupBox>
 
-        <GroupBox Header="Occupations" Grid.Row="2" Grid.Column="0">
+        <GroupBox Header="Occupations" Grid.Row="2" Grid.Column="0"  Style="{StaticResource MaterialDesignGroupBox}">
             <StackPanel>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -160,22 +160,24 @@
 
                     <StackPanel Grid.Column="1">
                         <Label Content="Selected occupations" />
-                        <ListBox ItemsSource="{Binding SelectedOccupations}" SelectedItem="{Binding SelectedSelectedOccupation}">
-                            <ListBox.ItemTemplate>
+                        <ComboBox IsEditable="False" ItemsSource="{Binding SelectedOccupations}" SelectedItem="{Binding SelectedSelectedOccupation}">
+                            <ComboBox.ItemTemplate>
                                 <DataTemplate>
                                     <Label Content="{Binding OccupationName}" />
                                 </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
                     </StackPanel>
                 </Grid>
-                <Button Content="Add occupation" Command="{Binding AddOccupationCmd}" />
-                <Button Content="Remove occupation" Command="{Binding RemoveOccupationCmd}" />
+                <Button FontFamily="./#Mason Chronicles" Margin="0 0 0 5"
+            FontSize="16" Content="Add occupation" Command="{Binding AddOccupationCmd}" />
+                <Button FontFamily="./#Mason Chronicles" Margin="0 0 0 5"
+            FontSize="16" Content="Remove occupation" Command="{Binding RemoveOccupationCmd}" />
             </StackPanel>
 
         </GroupBox>
 
-        <GroupBox Header="Belongs to" Grid.Row="2" Grid.Column="1">
+        <GroupBox Header="Belongs to" Grid.Row="2" Grid.Column="1"  Style="{StaticResource MaterialDesignGroupBox}">
             <StackPanel>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -196,17 +198,19 @@
 
                     <StackPanel Grid.Column="1">
                         <Label Content="Selected belongs" />
-                        <ListBox ItemsSource="{Binding SelectedBelongsTo}"  SelectedItem="{Binding SelectedSelectedBelongs}">
-                            <ListBox.ItemTemplate>
+                        <ComboBox IsEditable="False" ItemsSource="{Binding SelectedBelongsTo}"  SelectedItem="{Binding SelectedSelectedBelongs}">
+                            <ComboBox.ItemTemplate>
                                 <DataTemplate>
                                     <Label Content="{Binding SchoolName}" />
                                 </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
                     </StackPanel>
                 </Grid>
-                <Button Content="Add belongs" Command="{Binding AddBelongsCmd}" />
-                <Button Content="Remove belongs" Command="{Binding RemoveBelongsCmd}" />
+                <Button FontFamily="./#Mason Chronicles" Margin="0 0 0 5"
+            FontSize="16" Content="Add belongs" Command="{Binding AddBelongsCmd}" />
+                <Button FontFamily="./#Mason Chronicles" Margin="0 0 0 5"
+            FontSize="16" Content="Remove belongs" Command="{Binding RemoveBelongsCmd}" />
             </StackPanel>
 
         </GroupBox>

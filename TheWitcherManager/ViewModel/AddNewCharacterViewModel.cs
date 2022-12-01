@@ -64,6 +64,21 @@ namespace TheWitcherManager.ViewModel
                 SelectedChapter = Chapters[0];
             }
 
+            if (Occupations.Count > 0)
+            {
+                SelectedOccupation = Occupations[0];
+            }
+
+            if (Races.Count > 0)
+            {
+                SelectedRace = Races[0];
+            }
+
+            if (BelongsTo.Count > 0)
+            {
+                SelectedBelongs = BelongsTo[0];
+            }
+
             SexId = 1;
         }
 

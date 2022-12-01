@@ -5,19 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TheWitcherManager.View"
         mc:Ignorable="d"
+        Background="#333"
         Title="The Witcher. God mode" Height="650" Width="800" WindowStartupLocation="CenterScreen">
-    <StackPanel>
-        <Label  FontFamily="./#Mason Chronicles" 
+
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="#fff" />
+        </Style>
+
+        <Style TargetType="ListBoxItem">
+            <Setter Property="Foreground" Value="#fff" />
+        </Style>
+    </Window.Resources>
+    
+    <DockPanel LastChildFill="True" Background="#333">
+        <Label DockPanel.Dock="Top" FontFamily="./#Mason Chronicles" BorderThickness="0 0 0 2" BorderBrush="#fff"
             FontSize="16" Content="Персонажи" />
-        <ListBox ItemsSource="{Binding Characters}" SelectedItem="{Binding SelectedCharacter}"  FontFamily="./#Mason Chronicles" FontSize="16">
+
+
+        <StackPanel DockPanel.Dock="Bottom">
+            <Button Margin="0 0 0 5" FontFamily="./#Mason Chronicles" FontSize="16" Content="Add new" Click="AddBtn_Click" />
+            <Button Margin="0 0 0 5" FontFamily="./#Mason Chronicles" FontSize="16" Content="Edit" Click="EditBtn_Click" />
+            <Button Margin="0 0 0 5" FontFamily="./#Mason Chronicles" FontSize="16" Content="Delete" Command="{Binding DeleteCmd}" />
+        </StackPanel>
+        
+        <ListBox DockPanel.Dock="Top" ItemsSource="{Binding Characters}" SelectedItem="{Binding SelectedCharacter}"  FontFamily="./#Mason Chronicles" FontSize="16">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding Name}" />
+                    <Label Content="{Binding Name}" MouseDoubleClick="EditBtn_Click" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button  FontFamily="./#Mason Chronicles" FontSize="16" Content="Add new" Click="AddBtn_Click" />
-        <Button  FontFamily="./#Mason Chronicles" FontSize="16" Content="Edit" Click="EditBtn_Click" />
-        <Button  FontFamily="./#Mason Chronicles" FontSize="16" Content="Delete" Command="{Binding DeleteCmd}" />
-    </StackPanel>
+
+    </DockPanel>
 </Window>

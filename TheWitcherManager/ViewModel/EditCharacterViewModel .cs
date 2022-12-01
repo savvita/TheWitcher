@@ -67,6 +67,21 @@ namespace TheWitcherManager.ViewModel
                 SelectedChapter = Chapters[0];
             }
 
+            if (Occupations.Count > 0)
+            {
+                SelectedOccupation = Occupations[0];
+            }
+
+            if (Races.Count > 0)
+            {
+                SelectedRace = Races[0];
+            }
+
+            if (BelongsTo.Count > 0)
+            {
+                SelectedBelongs = BelongsTo[0];
+            }
+
             Death = character.Death;
             Name = character.Name;
             ImageURL = character.ImageUrl;
@@ -93,6 +108,21 @@ namespace TheWitcherManager.ViewModel
                 {
                     SelectedBelongsTo.Add(belong);
                 }
+            }
+
+            if (SelectedChapters.Count > 0)
+            {
+                SelectedSelectedChapter = SelectedChapters[0];
+            }
+
+            if (SelectedOccupations.Count > 0)
+            {
+                SelectedSelectedOccupation = SelectedOccupations[0];
+            }
+
+            if (SelectedBelongsTo.Count > 0)
+            {
+                SelectedSelectedBelongs = SelectedBelongsTo[0];
             }
         }
 

@@ -5,13 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TheWitcherManager.View"
         mc:Ignorable="d"
-        Title="Edit character" Height="550" Width="800">
-    
-    <StackPanel >
-        <local:CharacterControl />
-        <Button FontFamily="./#Mason Chronicles" 
-            FontSize="16" Content="Save" Command="{Binding EditCmd}" />
-        <Button FontFamily="./#Mason Chronicles" 
-            FontSize="16" Content="Cancel" Click="CancelBtn_Click" />
-    </StackPanel>
+        Title="Edit character" Height="650" Width="950" WindowStartupLocation="CenterScreen">
+
+
+    <DockPanel LastChildFill="True">
+        <StackPanel DockPanel.Dock="Bottom">
+            <Button FontFamily="./#Mason Chronicles" Margin="0 0 0 5"
+                FontSize="16" Content="Save" Command="{Binding EditCmd}" />
+            <Button FontFamily="./#Mason Chronicles" Margin="0 0 0 5"
+                FontSize="16" Content="Cancel" Click="CancelBtn_Click" />
+        </StackPanel>
+        <local:CharacterControl DockPanel.Dock="Top" />
+    </DockPanel>
 </Window>
